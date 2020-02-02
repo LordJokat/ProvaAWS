@@ -3,6 +3,7 @@ const request = require('request');
 const fs = require('fs');
 const csv = require('csv');
 const url = require('url');
+require('dotenv').config();
 
 var content;
 // First I want to read the file
@@ -102,11 +103,15 @@ http.createServer(function(request, response){
 		case '/csv':
 			response.end(createCSV(requestBodyCsv));
 			break;
+		default:
+			response.writeHead(200, {'Content-Type': 'text/html'});
+			response.end('Chose /json or /csv');
+			break;
 		}
 	}else{
 		response.writeHead(200, {'Content-Type': 'text/html'});
-		response.end('Nothing');
+		response.end('Nothing loaded yet');
 	}
 }).listen(8080);
 
-console.log("Server started at port 8080!!")
+console.log("Server started at "+process.env.DB_HOST+" port 8080!!")
