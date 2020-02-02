@@ -112,6 +112,6 @@ http.createServer(function(request, response){
 		response.writeHead(200, {'Content-Type': 'text/html'});
 		response.end('Nothing loaded yet');
 	}
-}).listen(8080);
+}).listen(80);
 
-console.log("Server started at "+process.env.DB_HOST+" port 8080!!")
+console.log("Server started at "+process.env.DB_HOST+" port 80!!")
