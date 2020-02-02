@@ -109,4 +109,4 @@ http.createServer(function(request, response){
 	}
 }).listen(8080);
 
-console.log("Server started at port 8080.")
+console.log("Server started at port 8080!")
